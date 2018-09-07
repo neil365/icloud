@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<classPathEntry location="C:\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
+  <context id="MySQLTables" targetRuntime="MyBatis3">
+    <!-- 生成的Java文件的编码 -->
+    <property name="javaFileEncoding" value="UTF-8"/>
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://192.168.1.203:3306/non_tax_core_system"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+	
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.usersauth.entity" targetProject="spr-usersauth-system\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper"  targetProject="spr-usersauth-system/src/main/resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.usersauth.mapper"  targetProject="spr-usersauth-system\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table schema="non_tax_core_system" tableName="sys_user" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <table schema="non_tax_core_system" tableName="sys_role" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <table schema="non_tax_core_system" tableName="sys_permission" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <table schema="non_tax_core_system" tableName="sys_role_permission" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <table schema="non_tax_core_system" tableName="sys_user_log" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    
+  </context>
+</generatorConfiguration>

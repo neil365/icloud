@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+  <context id="MySQLTables" targetRuntime="MyBatis3">
+    <!-- 生成的Java文件的编码 -->
+    <property name="javaFileEncoding" value="UTF-8"/>
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://192.168.1.203:3306/base_bill_service"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+	
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+	<!--生成Model类存放位置 -->
+    <javaModelGenerator targetPackage="base.bill.entity" targetProject="base_bill_service\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+	<!--生成映射文件存放位置 -->
+    <sqlMapGenerator targetPackage="mapper"  targetProject="base_bill_service/src/main/resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+	<!--生成Dao类存放位置 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="base.bill.mapper"  targetProject="base_bill_service\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+	<!--生成对应表及类名 票据管理表-->
+    <table schema="base_bill_service" tableName="t_bill_management" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="bill_management_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名 票据信息维护表-->
+    <table schema="base_bill_service" tableName="t_bill_info_maintain" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="bill_info_maintain_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名票据种类表 -->
+    <table schema="base_bill_service" tableName="t_bill_type" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="bill_type_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名 票据字轨维护表-->
+    <table schema="base_bill_service" tableName="t_bill_zg_maintain" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="bill_zg_maintain_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名 一般缴款信息服务（直接缴款服务和汇缴服务表）-->
+    <table schema="base_bill_service" tableName="t_demand_note" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="demand_note_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--wangp 2018-08-09-->
+    <!--生成对应表及类名 收入类款表-->
+    <table schema="base_bill_service" tableName="t_budget_kind_money" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="budget_kind_money_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名 财政表-->
+    <table schema="base_bill_service" tableName="t_financial" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="financial_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名执收单位表-->
+    <table schema="base_bill_service" tableName="t_imposing_unit" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="imposing_unit_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+     <!--生成对应表及类名  非税项目表-->
+    <table schema="base_bill_service" tableName="t_notax_project" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="notax_project_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名  执收单位与票据挂接表-->
+    <table schema="base_bill_service" tableName="t_unit_bill_info" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="unit_bill_info_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名  单位主管部门表-->
+    <table schema="base_bill_service" tableName="t_unit_competent_department" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="unit_competent_department_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名  征收大厅表-->
+    <table schema="base_bill_service" tableName="t_levy_fall" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="levyfall_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名 执收单位项目挂接表-->
+    <table schema="base_bill_service" tableName="t_imposing_unit_nproject" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="imposing_unit_nproject_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    <!--生成对应表及类名 征收大厅与票据挂接表-->
+    <table schema="base_bill_service" tableName="t_levyfall_bill_info" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="levyfall_bill_info_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+     <!--生成对应表及类名 征收大厅与执收单位挂接表-->
+    <table schema="base_bill_service" tableName="t_levyfall_imposing_unit" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="levyfall_imposing_unit_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+     <!--生成对应表及类名 集体汇缴 汇总表与直缴服务表挂接-->
+    <table schema="base_bill_service" tableName="t_demand_note_hz" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+    </table>
+     <!--生成对应表及类名 票据申请领购详情 明细表-->
+    <table schema="base_bill_service" tableName="t_bill_management_mingxi" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+    </table>
+     <!--生成对应表及类名 票据缴验申请表-->
+    <table schema="base_bill_service" tableName="t_bill_management_inspection" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+    </table>
+     <!--生成对应表及类名 票据缴验申请 明细表-->
+    <table schema="base_bill_service" tableName="t_bill_management_inspection_mingxi" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="mingxi_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+     <!--生成对应表及类名 票据销毁申请表-->
+    <table schema="base_bill_service" tableName="t_bill_pplication_destruction" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+     <!--生成对应表及类名 票据销毁申请 明细表-->
+    <table schema="base_bill_service" tableName="t_bill_pplication_destruction_mingxi" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="mx_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <!--生成对应表及类名  退付申请管理表-->
+    <table schema="base_bill_service" tableName="refund_application" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <!--生成对应表及类名  退付申请管理明细表-->
+    <table schema="base_bill_service" tableName="refund_application_mingxi" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="mingxi_id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+    <!--生成对应表及类名 暂保押录入管理表-->
+    <table schema="base_bill_service" tableName="t_emporary_guarantee_application" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+    </table>
+    
+  </context>
+</generatorConfiguration>

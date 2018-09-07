@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: basebill
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://192.168.1.203:3306/base_bill_service?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useCompression=true&useSSL=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      data-source-class-name: com.mysql.jdbc.Driver
+      minimum-idle: 5
+      maximum-pool-size: 10
+      username: root
+      password: 123456
+  cloud:
+    zookeeper:
+      connect-string: 192.168.1.210:2181,192.168.1.211:2181,192.168.1.212:2181
+      discovery:
+        instance-host: 192.168.1.169 #启用zookpeer 客户端  将把IP对应的程序 注册到zookpeer上
+        instance-port: ${server.port}
+        enabled: true
+        register: true
+  swagger:
+    enable: true
+  rabbitmq:
+    host: 192.168.1.204
+    port: 5672
+    username: admin
+    password: 123456
+
+
+server:
+  port: 8080
+
+
+logging:
+  config: classpath:log4j2.xml
+  level:
+    base.bill.mapper: debug
+
+    
+    
